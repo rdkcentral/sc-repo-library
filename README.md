@@ -1,2 +1,3 @@
-# sc-repo-library
-This is a library to standardize running repo commands used in the sc app.
+# repo-library
+
+This library provides interface to Google's repo tool.
