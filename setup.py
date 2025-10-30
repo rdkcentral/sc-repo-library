@@ -7,8 +7,7 @@ def read_version():
 setuptools.setup(
     name="repo_library",
     version=read_version(),
-    author="Bobi Martens",
-    author_email="bobi.martens@sky.uk",
+    author="RDK Management",
     description="This library provides interface to Google's repo tool.",
     packages=setuptools.find_packages(),
     install_requires=[
