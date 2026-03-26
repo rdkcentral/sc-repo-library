@@ -140,7 +140,7 @@ class RepoLibrary:
                 the remote. Defaults to False.
             verify (bool): Run post-sync hooks without prompting. Not natively supported.
                 Defaults to False.
-            no_manifest_update (bool): Use the exisitng manifest as is, do not update
+            no_manifest_update (bool): Use the existing manifest as is, do not update
                 to latest revision. Defaults to False.
         """
         cmd = ['repo', 'sync']
