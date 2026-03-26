@@ -119,7 +119,8 @@ class RepoLibrary:
             current_branch: bool = False,
             detach: bool = False,
             no_prune: bool = False,
-            verify: bool = False
+            verify: bool = False,
+            no_manifest_update: bool = False
         ):
         """Synchronize all repositories in a repo project.
 
@@ -135,10 +136,12 @@ class RepoLibrary:
                 to False.
             detach (bool): Remove any project not listed in the manifest. Defaults to
                 False.
-            no-prune (bool): Don't delete references to objects that don't exist on
+            no_prune (bool): Don't delete references to objects that don't exist on
                 the remote. Defaults to False.
             verify (bool): Run post-sync hooks without prompting. Not natively supported.
-                Defaults to false.
+                Defaults to False.
+            no_manifest_update (bool): Use the exisitng manifest as is, do not update
+                to latest revision. Defaults to False.
         """
         cmd = ['repo', 'sync']
         if force_sync:
@@ -155,6 +158,8 @@ class RepoLibrary:
             cmd.append('--no-prune')
         if verify:
             cmd.append('--verify')
+        if no_manifest_update:
+            cmd.append('--no-manifest-update')
 
         logger.info(f'In {str(directory)}: {" ".join(cmd)}')
         subprocess.run(cmd, cwd=directory, check=True)
